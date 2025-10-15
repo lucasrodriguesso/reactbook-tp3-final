@@ -10,7 +10,6 @@ function Feed() {
   ]);
 
   const handleAddPost = () => {
-    // Ajoute un nouveau post au tableau
     const newPost = {
       id: posts.length + 1,
       author: "Nouvel Auteur",
