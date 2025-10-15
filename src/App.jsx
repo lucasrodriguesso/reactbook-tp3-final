@@ -2,6 +2,8 @@ import Feed from "./components/Feed";
 import UserProfile from "./components/UserProfile";
 import InputLogger from "./components/InputLogger";
 import LoginForm from "./components/LoginForm";
+import MessageForm from "./components/MessageForm";
+import MessageBoard from "./components/MessageBoard";
 
 function App() {
   return (
@@ -10,6 +12,7 @@ function App() {
       <InputLogger />
       <Feed />
       <LoginForm />
+      <MessageBoard />
     </div>
   );
 }
