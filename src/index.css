@@ -141,11 +141,22 @@ body {
 .header-user { display:flex; align-items:center; gap:0.5rem; }
 
 .theme-toggle {
-  display:inline-flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:999px; border:none; background:transparent;
-  cursor:pointer; color:var(--text);
+  background-color: var(--button-bg);
+  color: var(--text);
+  border: 1px solid rgba(0,0,0,0.1);
 }
-.theme-toggle svg { display:block; }
+
+body[data-theme="dark"] .theme-toggle {
+  border-color: rgba(255,255,255,0.15);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+}
+
 
 /* Buttons */
 .btn {
