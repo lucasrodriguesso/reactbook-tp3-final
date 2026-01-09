@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ThemeContext } from "../context/ThemeContext";
 
@@ -31,7 +31,7 @@ function Header({ onAddPost }) {
   const dispatchTheme = themeCtx?.dispatch ?? (() => {});
 
   const isDark = theme === 'dark';
-  const [search, setSearch] = useState("");
+  
 
   return (
     <header className="app-header" role="banner">
@@ -40,17 +40,7 @@ function Header({ onAddPost }) {
       </div>
 
       <div className="app-header-right">
-        <div className="header-search">
-          <input
-            className="input"
-            type="search"
-            placeholder="Rechercher des posts..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{ width: 220 }}
-            aria-label="Rechercher"
-          />
-        </div>
+        
 
         <button className="notif-bell" title="Notifications" aria-label="Notifications">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
