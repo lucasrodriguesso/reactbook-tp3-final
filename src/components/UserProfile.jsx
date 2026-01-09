@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 function UserProfile() {
   const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // état pour le chargement
+  const [isLoading, setIsLoading] = useState(true); 
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ function UserProfile() {
       })
       .then(data => {
         setUser(data);
-        setIsLoading(false); // chargement terminé
+        setIsLoading(false);
       })
       .catch(err => {
         setError(err.message);
@@ -21,7 +21,7 @@ function UserProfile() {
       });
   }, []);
 
-  if (isLoading) return <p>Chargement...</p>; // affichage pendant la requête
+  if (isLoading) return <p>Chargement...</p>; 
   if (error) return <p>Erreur : {error}</p>;
 
   return (
