@@ -1,0 +1,38 @@
+name: ReactBook CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test-build-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Récupérer le code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2) Installer Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3) Installer les dépendances
+      - name: Install dependencies
+        run: npm ci
+
+      # 4) Lancer les tests
+      - name: Run tests
+        run: npm test -- --watchAll=false
+
+      # 5) Build React
+      - name: Build React app
+        run: npm run build
+
+      # 6) Build Docker
+      - name: Docker build
+        run: docker build -t reactbook-frontend:ci .
