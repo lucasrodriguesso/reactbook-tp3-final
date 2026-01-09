@@ -8,7 +8,7 @@ import feedReducer from "./feedReducer";
 function Feed() {
   const initialPosts = [
      { id: 1, author: "Salome Cros", content: "Voici mon premier post !", likes: 5, liked: false },
-     { id: 2, author: "Rodrigues Lucas", content: "React, c’est génial", likes: 3, liked: false }
+     { id: 2, author: "Rodrigues Lucass", content: "React, c’est génial", likes: 3, liked: false }
   ];
 
   const [posts, dispatch] = useReducer(feedReducer, initialPosts, () => {
