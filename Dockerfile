@@ -1,18 +1,30 @@
-FROM node:18-alpine
+# =========================
+# 1️⃣ Étape BUILD
+# =========================
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
-
-# 🔑 Important : pas de devDependencies
-RUN npm ci --omit=dev
+RUN npm ci
 
 COPY . .
-
-# 🔑 Build de l'application
 RUN npm run build
+
+
+# =========================
+# 2️⃣ Étape PRODUCTION
+# =========================
+FROM node:18-alpine
+
+WORKDIR /app
+
+# On ne garde que le build final
+COPY --from=builder /app/dist ./dist
+
+# Installation de vite uniquement pour le preview
+RUN npm install -g vite
 
 EXPOSE 5173
 
-# 🔑 Lancement du serveur de preview (prod)
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "5173"]
+CMD ["vite", "preview", "--host", "0.0.0.0", "--port", "5173"]
