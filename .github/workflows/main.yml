@@ -23,7 +23,8 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npx vitest run
+        run: npm test -- --run
+
 
       - name: Build React app
         run: npm run build
