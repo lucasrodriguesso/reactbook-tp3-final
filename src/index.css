@@ -125,37 +125,95 @@ body {
   padding: 2rem 1rem;
 }
 
+/* ================= HEADER ================= */
+
 .app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+
+  padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
-}
-.app-title { font-size: 1.6rem; margin: 0; color: var(--text, #213547); }
-.app-header-left { display:flex; align-items:center; gap:0.75rem; }
-.app-header-right { display:flex; align-items:center; gap:0.75rem; }
-.header-actions { margin-right: 0.5rem; }
-.header-user { display:flex; align-items:center; gap:0.5rem; }
 
-.theme-toggle {
-  background-color: var(--button-bg);
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+}
+
+/* Title */
+.app-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.4px;
   color: var(--text);
-  border: 1px solid rgba(0,0,0,0.1);
 }
 
-body[data-theme="dark"] .theme-toggle {
+/* Right section */
+.app-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* User */
+.header-user {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* Notification */
+.notif-bell {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body[data-theme="dark"] .notif-bell {
   border-color: rgba(255,255,255,0.15);
 }
 
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  fill: none;
+.notif-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.65rem;
+  border-radius: 999px;
+  padding: 1px 5px;
 }
+
+/* Theme toggle */
+.theme-toggle {
+  background: var(--button-bg);
+  color: var(--text);
+}
+
+body[data-theme="dark"] .theme-toggle {
+  background: #1f2933;
+  color: white;
+}
+
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
 
 
 /* Buttons */
