@@ -25,7 +25,7 @@ function CreatePostForm({ dispatch, posts }) {
       if (author.reset) author.reset("");
       if (content.reset) content.reset("");
     } catch (err) {
-      showToast('Erreur lors de la publication', 'error');
+      showToast('Erreurr lors de la publication', 'error');
     }
   };
 
